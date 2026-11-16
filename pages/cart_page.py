@@ -12,7 +12,9 @@ class CartPage:
         )
 
     def item(self, product_name: str) -> Locator:
-        return self.page.get_by_test_id("cart-item").filter(has_text=product_name)
+        return self.page.get_by_test_id("inventory-item").filter(
+            has_text=product_name
+        )
 
     def remove_item(self, product_name: str) -> None:
         self.item(product_name).get_by_role("button", name="Remove").click()
